@@ -7,10 +7,10 @@
 <div class="content">
   <div class="items">
     <mat-card>
+      <mat-card-title-group>
+        <mat-card-title>Catheter Removal Tool</mat-card-title>
+      </mat-card-title-group>
       <ng-container *ngIf="catheterRemoval$ | async as catheterRemoval; else catheterRemovalLoading">
-        <mat-card-title-group>
-          <mat-card-title>Catheter Removal Tool</mat-card-title>
-        </mat-card-title-group>
   
         <mat-card-content>
           <div class="chart-70">
@@ -31,15 +31,15 @@
           <p><b>{{ catheterRemoval.catheterGreaterNinetyDaysCount }}</b> Patients with Catheters > 90 Days</p>
           <p><b>{{ catheterRemoval.overdueTaskCount }}</b> Overdue action items</p>
         </mat-card-content>
-  
-        <mat-card-actions align="end">
-          <button mat-stroked-button color="primary">Details</button>
-        </mat-card-actions>
       </ng-container>
 
       <ng-template #catheterRemovalLoading>
-        <app-loader-template [template]="LoaderTemplate.WidgetOne"></app-loader-template>
+        <app-loader-template [template]="LoaderTemplate.ContentOne" [style.height.%]="76"></app-loader-template>
       </ng-template>
+
+      <mat-card-actions align="end">
+        <button mat-stroked-button color="primary">Details</button>
+      </mat-card-actions>
     </mat-card>
     
     <mat-card>
