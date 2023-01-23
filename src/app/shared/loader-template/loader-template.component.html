@@ -1,53 +1,72 @@
 <ng-container [ngSwitch]="template">
   <ng-container *ngSwitchCase="LoaderTemplate.WidgetOne">
-    <app-loader [theme]="{
-      width: '50%',
-      height: '10%'
-    }"
+    <app-loader 
+      [theme]="{
+        width: '50%',
+        height: '10%'
+      }"
     ></app-loader>
 
-    <app-loader [theme]="{
-      height: '70%'
-    }"
+    <app-loader 
+      [theme]="{
+        height: '70%'
+      }"
     ></app-loader>
 
-    <app-loader [theme]="{
-      width: '20%',
-      height: '13%',
-      'align-self': 'flex-end'
-    }"
+    <app-loader 
+      [theme]="{
+        width: '20%',
+        height: '13%',
+        'align-self': 'flex-end'
+      }"
     ></app-loader>
   </ng-container>
 
   <ng-container *ngSwitchCase="LoaderTemplate.WidgetTwo">
-    <app-loader [theme]="{
-      width: '50%',
-      height: '10%'
-    }"
+    <app-loader 
+      [theme]="{
+        width: '50%',
+        height: '10%'
+      }"
     ></app-loader>
 
     <div class="three-column">
-      <app-loader [theme]="{
-        width: '30%'
-      }"
+      <app-loader 
+        [theme]="{
+          width: '30%'
+        }"
       ></app-loader>
 
-      <app-loader [theme]="{
-        width: '30%'
-      }"
+      <app-loader 
+        [theme]="{
+          width: '30%'
+        }"
       ></app-loader>
 
-      <app-loader [theme]="{
-        width: '30%'
-      }"
+      <app-loader 
+        [theme]="{
+          width: '30%'
+        }"
       ></app-loader>
     </div>
 
-    <app-loader [theme]="{
-      width: '20%',
-      height: '13%',
-      'align-self': 'flex-end'
-    }"
+    <app-loader 
+      [theme]="{
+        width: '20%',
+        height: '13%',
+        'align-self': 'flex-end'
+      }"
+    ></app-loader>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="LoaderTemplate.TableRows">
+    <app-loader 
+      *ngFor="let row of rows; let first = first; let last = last;"
+      [theme]="{
+        width: '100%',
+        height: '1rem',
+        padding: first ? '1rem 0 0.5rem' : last ? '0.5em 0 1rem' : '0.5rem 0'
+      }"
     ></app-loader>
   </ng-container>
 </ng-container>

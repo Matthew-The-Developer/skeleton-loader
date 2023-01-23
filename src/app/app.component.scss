@@ -43,9 +43,17 @@
         }
 
         mat-card-content {
-          flex-grow: 1;
+          height: calc(100% - (28px + 44px));
           overflow: overlay;
           margin: 0;
+
+          div.chart-70 {
+            height: 70%;
+          }
+
+          div.chart-80 {
+            height: 80%;
+          }
 
           p {
             margin-bottom: 0.125rem;
@@ -53,9 +61,6 @@
         }
 
         mat-card-content.akf-content {
-          flex-grow: 1;
-          overflow: overlay;
-          margin: 0;
 
           display: flex;
           flex-direction: row;
@@ -78,7 +83,8 @@
 
               margin: 4px 0;
 
-              font-size: 10px;
+              font-size: 12px;
+              font-weight: 400;
 
               mat-icon {
                 width: 22px;
@@ -103,10 +109,32 @@
           margin: 0;
         }
       }
-  
+
       mat-card.table {
-        aspect-ratio: 4 / 2;
+        aspect-ratio: unset;
         grid-column: 1 / span 3;
+        display: flex;
+        flex-direction: column;
+
+        mat-card-title-group {
+          flex-shrink: 0;
+
+          mat-card-title {
+            font-size: 20px;
+          }
+        }
+
+        mat-card-content {
+          height: auto;
+
+          table {
+            width: 100%;
+
+            tr.mat-header-row {
+              height: 40px;
+            }
+          }
+        }
       }
     }
 

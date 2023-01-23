@@ -13,18 +13,19 @@
         </mat-card-title-group>
   
         <mat-card-content>
-          <ngx-charts-bar-vertical
-            [view]="[448, 156]"
-            [scheme]="catheterRemoval.chart.colorScheme"
-            [results]="catheterRemoval.chart.data"
-            [xAxis]="catheterRemoval.chart.xAxis"
-            [showXAxisLabel]="catheterRemoval.chart.showXAxisLabel"
-            [xAxisLabel]="catheterRemoval.chart.xAxisLabel"
-            [yAxis]="catheterRemoval.chart.yAxis"
-            [showYAxisLabel]="catheterRemoval.chart.showYAxisLabel"
-            [yAxisLabel]="catheterRemoval.chart.yAxisLabel"
-            [legend]="catheterRemoval.chart.showLegend"
-          ></ngx-charts-bar-vertical>
+          <div class="chart-70">
+            <ngx-charts-bar-vertical
+              [scheme]="catheterRemoval.chart.colorScheme"
+              [results]="catheterRemoval.chart.data"
+              [xAxis]="catheterRemoval.chart.xAxis"
+              [showXAxisLabel]="catheterRemoval.chart.showXAxisLabel"
+              [xAxisLabel]="catheterRemoval.chart.xAxisLabel"
+              [yAxis]="catheterRemoval.chart.yAxis"
+              [showYAxisLabel]="catheterRemoval.chart.showYAxisLabel"
+              [yAxisLabel]="catheterRemoval.chart.yAxisLabel"
+              [legend]="catheterRemoval.chart.showLegend"
+            ></ngx-charts-bar-vertical>
+          </div>
 
           <p><b>{{ catheterRemoval.catheterPatientCount }}</b> Catheter Patients</p>
           <p><b>{{ catheterRemoval.catheterGreaterNinetyDaysCount }}</b> Patients with Catheters > 90 Days</p>
@@ -48,18 +49,19 @@
         </mat-card-title-group>
   
         <mat-card-content>
-          <ngx-charts-bar-vertical
-            [view]="[448, 178]"
-            [scheme]="transplantStatus.chart.colorScheme"
-            [results]="transplantStatus.chart.data"
-            [xAxis]="transplantStatus.chart.xAxis"
-            [showXAxisLabel]="transplantStatus.chart.showXAxisLabel"
-            [xAxisLabel]="transplantStatus.chart.xAxisLabel"
-            [yAxis]="transplantStatus.chart.yAxis"
-            [showYAxisLabel]="transplantStatus.chart.showYAxisLabel"
-            [yAxisLabel]="transplantStatus.chart.yAxisLabel"
-            [legend]="transplantStatus.chart.showLegend"
-          ></ngx-charts-bar-vertical>
+          <div class="chart-80">            
+            <ngx-charts-bar-vertical
+              [scheme]="transplantStatus.chart.colorScheme"
+              [results]="transplantStatus.chart.data"
+              [xAxis]="transplantStatus.chart.xAxis"
+              [showXAxisLabel]="transplantStatus.chart.showXAxisLabel"
+              [xAxisLabel]="transplantStatus.chart.xAxisLabel"
+              [yAxis]="transplantStatus.chart.yAxis"
+              [showYAxisLabel]="transplantStatus.chart.showYAxisLabel"
+              [yAxisLabel]="transplantStatus.chart.yAxisLabel"
+              [legend]="transplantStatus.chart.showLegend"
+            ></ngx-charts-bar-vertical>
+          </div>
 
           <p><b>{{ transplantStatus.overdueTaskCount }}</b> Overdue Tasks</p>
           <p><b>{{ transplantStatus.duesoonTaskCount }}</b> Due Soon Tasks</p>
@@ -93,7 +95,7 @@
             </mat-chip-list>
           </div>
           
-          <mat-divider [inset]="true" [vertical]="true"></mat-divider>
+          <mat-divider [vertical]="true"></mat-divider>
           
           <div class="column">
             <p class="title">Requests</p>
@@ -105,7 +107,7 @@
             </mat-chip-list>
           </div>
           
-          <mat-divider [inset]="true" [vertical]="true"></mat-divider>
+          <mat-divider [vertical]="true"></mat-divider>
           
           <div class="column">
             <p class="title">Transactions</p>
@@ -130,11 +132,50 @@
     
     <mat-card class="table">
       <mat-card-title-group>
-        <mat-card-title>Work Item</mat-card-title>
-        <button mat-button class="square">
-          <mat-icon color="warn">close</mat-icon>
-        </button>
+        <mat-card-title>Periodic Elements</mat-card-title>
+
+        <div>
+          <button mat-button color="primary">
+            <mat-icon>add</mat-icon> Periodic Element
+          </button>
+          <button mat-button class="square">
+            <mat-icon color="warn">close</mat-icon>
+          </button>
+        </div>
       </mat-card-title-group>
+
+      <mat-card-content>
+        <table mat-table [dataSource]="periodicElements">
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef> Weight </th>
+            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef> Symbol </th>
+            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+          </ng-container>
+
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+              <app-loader-template [template]="LoaderTemplate.TableRows" [rowCount]="5"></app-loader-template>
+            </td>
+          </tr>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </mat-card-content>
     </mat-card>
   </div>
 </div>

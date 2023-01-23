@@ -8,12 +8,15 @@ import { LoaderTemplate } from 'src/app/models/loader-template.enum';
 })
 export class LoaderTemplateComponent implements OnInit {
   @Input() template: LoaderTemplate = LoaderTemplate.WidgetOne;
+  @Input() rowCount: number = 1;
 
   LoaderTemplate = LoaderTemplate;
+  rows: number[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
+    this.rows = Array(this.rowCount).fill(0).map((x,i)=>i)
   }
 
 }
