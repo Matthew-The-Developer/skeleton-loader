@@ -34,7 +34,7 @@
       </ng-container>
 
       <ng-template #catheterRemovalLoading>
-        <app-loader-template [template]="LoaderTemplate.ContentOne" [style.height.%]="76"></app-loader-template>
+        <app-loader-template [template]="LoaderTemplate.ContentOne" [style.height]="'calc(100% - (28px + 44px))'"></app-loader-template>
       </ng-template>
 
       <mat-card-actions align="end">
