@@ -7,10 +7,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-  div.three-column {
-    height: 70%;
-    width: 100%;
-    
+  div.columns {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

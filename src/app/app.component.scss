@@ -52,7 +52,20 @@
           }
 
           div.chart-80 {
-            height: 80%;
+            height: 84%;
+          }
+
+          div.columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-auto-rows: auto;
+
+            p {
+              text-align: center;
+              margin: 0.5rem 0;
+            }
+            p.over-due { color: #C23F37; }
+            p.due-soon { color: #F1A93B; }
           }
 
           p {

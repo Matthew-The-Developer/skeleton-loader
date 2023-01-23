@@ -1,36 +1,44 @@
 <ng-container [ngSwitch]="template">
-  <ng-container *ngSwitchCase="LoaderTemplate.WidgetOne">
+  <ng-container *ngSwitchCase="LoaderTemplate.ContentOne">
     <app-loader 
       [theme]="{
-        width: '50%',
-        height: '10%'
-      }"
-    ></app-loader>
-
-    <app-loader 
-      [theme]="{
-        height: '70%'
-      }"
-    ></app-loader>
-
-    <app-loader 
-      [theme]="{
-        width: '20%',
-        height: '13%',
-        'align-self': 'flex-end'
+        height: '100%'
       }"
     ></app-loader>
   </ng-container>
 
-  <ng-container *ngSwitchCase="LoaderTemplate.WidgetTwo">
+  <ng-container *ngSwitchCase="LoaderTemplate.ContentTwo">
     <app-loader 
       [theme]="{
-        width: '50%',
-        height: '10%'
+        height: '75%'
       }"
     ></app-loader>
 
-    <div class="three-column">
+    <div
+      [style.height.%]="20"
+      [style.width.%]="100"
+      class="columns"
+    >
+      <app-loader 
+        [theme]="{
+          width: '48.75%'
+        }"
+      ></app-loader>
+
+      <app-loader 
+        [theme]="{
+          width: '48.75%'
+        }"
+      ></app-loader>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="LoaderTemplate.ContentThree">
+    <div 
+      [style.height.%]="100"
+      [style.width.%]="100"
+      class="columns"
+    >
       <app-loader 
         [theme]="{
           width: '30%'
@@ -49,14 +57,6 @@
         }"
       ></app-loader>
     </div>
-
-    <app-loader 
-      [theme]="{
-        width: '20%',
-        height: '13%',
-        'align-self': 'flex-end'
-      }"
-    ></app-loader>
   </ng-container>
 
   <ng-container *ngSwitchCase="LoaderTemplate.TableRows">
@@ -66,14 +66,6 @@
         width: '100%',
         height: '1rem',
         padding: first ? '1rem 0 0.5rem' : last ? '0.5em 0 1rem' : '0.5rem 0'
-      }"
-    ></app-loader>
-  </ng-container>
-
-  <ng-container *ngSwitchCase="LoaderTemplate.ContentOne">
-    <app-loader 
-      [theme]="{
-        height: '100%'
       }"
     ></app-loader>
   </ng-container>

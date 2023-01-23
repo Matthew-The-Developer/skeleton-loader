@@ -7,7 +7,7 @@ import { LoaderTemplate } from 'src/app/models/loader-template.enum';
   styleUrls: ['./loader-template.component.scss']
 })
 export class LoaderTemplateComponent implements OnInit {
-  @Input() template: LoaderTemplate = LoaderTemplate.WidgetOne;
+  @Input() template: LoaderTemplate = LoaderTemplate.ContentOne;
   @Input() rowCount: number = 1;
 
   LoaderTemplate = LoaderTemplate;

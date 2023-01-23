@@ -10,9 +10,9 @@
       <mat-card-title-group>
         <mat-card-title>Catheter Removal Tool</mat-card-title>
       </mat-card-title-group>
-      <ng-container *ngIf="catheterRemoval$ | async as catheterRemoval; else catheterRemovalLoading">
-  
-        <mat-card-content>
+
+      <mat-card-content>
+        <ng-container *ngIf="catheterRemoval$ | async as catheterRemoval; else catheterRemovalLoading">
           <div class="chart-70">
             <ngx-charts-bar-vertical
               [scheme]="catheterRemoval.chart.colorScheme"
@@ -30,12 +30,13 @@
           <p><b>{{ catheterRemoval.catheterPatientCount }}</b> Catheter Patients</p>
           <p><b>{{ catheterRemoval.catheterGreaterNinetyDaysCount }}</b> Patients with Catheters > 90 Days</p>
           <p><b>{{ catheterRemoval.overdueTaskCount }}</b> Overdue action items</p>
-        </mat-card-content>
-      </ng-container>
 
-      <ng-template #catheterRemovalLoading>
-        <app-loader-template [template]="LoaderTemplate.ContentOne" [style.height]="'calc(100% - (28px + 44px))'"></app-loader-template>
-      </ng-template>
+        </ng-container>
+
+        <ng-template #catheterRemovalLoading>
+          <app-loader-template [template]="LoaderTemplate.ContentOne"></app-loader-template>
+        </ng-template>
+      </mat-card-content>
 
       <mat-card-actions align="end">
         <button mat-stroked-button color="primary">Details</button>
@@ -43,12 +44,12 @@
     </mat-card>
     
     <mat-card>
-      <ng-container *ngIf="transplantStatus$ | async as transplantStatus; else transplantStatusLoading">
-        <mat-card-title-group>
-          <mat-card-title>Transpant Status</mat-card-title>
-        </mat-card-title-group>
-  
-        <mat-card-content>
+      <mat-card-title-group>
+        <mat-card-title>Transpant Status</mat-card-title>
+      </mat-card-title-group>
+
+      <mat-card-content>
+        <ng-container *ngIf="transplantStatus$ | async as transplantStatus; else transplantStatusLoading">
           <div class="chart-80">            
             <ngx-charts-bar-vertical
               [scheme]="transplantStatus.chart.colorScheme"
@@ -63,28 +64,29 @@
             ></ngx-charts-bar-vertical>
           </div>
 
-          <p><b>{{ transplantStatus.overdueTaskCount }}</b> Overdue Tasks</p>
-          <p><b>{{ transplantStatus.duesoonTaskCount }}</b> Due Soon Tasks</p>
-        </mat-card-content>
-  
-        <mat-card-actions align="end">
-          <button mat-stroked-button color="primary">Details</button>
-        </mat-card-actions>
-      </ng-container>
+          <div class="columns">
+            <p class="over-due"><b>{{ transplantStatus.overdueTaskCount }}</b> Overdue Tasks</p>
+            <p class="due-soon"><b>{{ transplantStatus.duesoonTaskCount }}</b> Due Soon Tasks</p>
+          </div>
+        </ng-container>
 
-      <ng-template #transplantStatusLoading>
-        <app-loader-template [template]="LoaderTemplate.WidgetOne"></app-loader-template>
-      </ng-template>
+        <ng-template #transplantStatusLoading>
+          <app-loader-template [template]="LoaderTemplate.ContentTwo"></app-loader-template>
+        </ng-template>
+      </mat-card-content>
 
+      <mat-card-actions align="end">
+        <button mat-stroked-button color="primary">Details</button>
+      </mat-card-actions>
     </mat-card>
     
-    <mat-card>
-      <ng-container *ngIf="akf$ | async as akf; else akfLoading">
-        <mat-card-title-group>
-          <mat-card-title>AKF</mat-card-title>
-        </mat-card-title-group>
+    <mat-card> 
+      <mat-card-title-group>
+        <mat-card-title>AKF</mat-card-title>
+      </mat-card-title-group>
   
-        <mat-card-content class="akf-content">
+      <mat-card-content class="akf-content">
+        <ng-container *ngIf="akf$ | async as akf; else akfLoading">
           <div class="column">
             <p class="title">Patient Profiles</p>
 
@@ -118,16 +120,16 @@
               </mat-chip>
             </mat-chip-list>
           </div>
-        </mat-card-content>
-  
-        <mat-card-actions align="end">
-          <button mat-stroked-button color="primary">Details</button>
-        </mat-card-actions>
-      </ng-container>
+        </ng-container>
 
-      <ng-template #akfLoading>
-        <app-loader-template [template]="LoaderTemplate.WidgetTwo"></app-loader-template>
-      </ng-template>
+        <ng-template #akfLoading>
+          <app-loader-template [template]="LoaderTemplate.ContentThree"></app-loader-template>
+        </ng-template>
+      </mat-card-content>
+  
+      <mat-card-actions align="end">
+        <button mat-stroked-button color="primary">Details</button>
+      </mat-card-actions>
     </mat-card>
     
     <mat-card class="table">

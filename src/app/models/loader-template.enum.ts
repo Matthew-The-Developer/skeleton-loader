@@ -1,6 +1,6 @@
 export enum LoaderTemplate {
-  WidgetOne = 0,
-  WidgetTwo = 1,
-  TableRows = 2,
-  ContentOne = 3,
+  ContentOne = 0,
+  ContentTwo = 1,
+  ContentThree = 2,
+  TableRows = 3,
 }
