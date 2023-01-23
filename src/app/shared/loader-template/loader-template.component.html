@@ -1,0 +1,53 @@
+<ng-container [ngSwitch]="template">
+  <ng-container *ngSwitchCase="LoaderTemplate.WidgetOne">
+    <app-loader [theme]="{
+      width: '50%',
+      height: '10%'
+    }"
+    ></app-loader>
+
+    <app-loader [theme]="{
+      height: '70%'
+    }"
+    ></app-loader>
+
+    <app-loader [theme]="{
+      width: '20%',
+      height: '13%',
+      'align-self': 'flex-end'
+    }"
+    ></app-loader>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="LoaderTemplate.WidgetTwo">
+    <app-loader [theme]="{
+      width: '50%',
+      height: '10%'
+    }"
+    ></app-loader>
+
+    <div class="three-column">
+      <app-loader [theme]="{
+        width: '30%'
+      }"
+      ></app-loader>
+
+      <app-loader [theme]="{
+        width: '30%'
+      }"
+      ></app-loader>
+
+      <app-loader [theme]="{
+        width: '30%'
+      }"
+      ></app-loader>
+    </div>
+
+    <app-loader [theme]="{
+      width: '20%',
+      height: '13%',
+      'align-self': 'flex-end'
+    }"
+    ></app-loader>
+  </ng-container>
+</ng-container>

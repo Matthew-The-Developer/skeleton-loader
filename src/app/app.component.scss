@@ -2,7 +2,7 @@
   height: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-auto-rows: auto 1fr;
+  grid-template-rows: auto 1fr;
   grid-template-areas: 
   "header"
   "content";
@@ -45,6 +45,58 @@
         mat-card-content {
           flex-grow: 1;
           overflow: overlay;
+          margin: 0;
+
+          p {
+            margin-bottom: 0.125rem;
+          }
+        }
+
+        mat-card-content.akf-content {
+          flex-grow: 1;
+          overflow: overlay;
+          margin: 0;
+
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          mat-divider {
+            margin: 0;
+          }
+
+          div.column {
+            width: 30%;
+
+            p.title {
+              text-align: center;
+            }
+
+            mat-chip {
+              min-height: 26px;
+              padding-left: 4px;
+
+              margin: 4px 0;
+
+              font-size: 10px;
+
+              mat-icon {
+                width: 22px;
+                height: 22px;
+                font-size: 22px;
+
+                margin-right: 2px;
+              }
+
+              .cobra { color: #142573; }
+              .submitted { color: #F3EB98; }
+              .inactive { color: #6D747C; }
+              .keyed-paid { color: #73B667; }
+              .needs-update { color: #F1A93B; }
+              .new-incomplete { color: #6DC8F4; }
+              .void-issues { color: #C23F37; }
+            }
+          }
         }
 
         mat-card-actions {

@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { LoaderComponent } from './loader/loader.component';
+import { LoaderTemplateComponent } from './loader-template/loader-template.component';
 
 
 
 @NgModule({
   declarations: [
-    LoaderComponent
+    LoaderComponent,
+    LoaderTemplateComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NgxSkeletonLoaderModule,
   ],
   exports: [
-    LoaderComponent
+    LoaderTemplateComponent
   ]
 })
 export class SharedModule { }
