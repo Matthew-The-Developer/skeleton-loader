@@ -71,6 +71,14 @@
           p {
             margin-bottom: 0.125rem;
           }
+
+          mat-button-toggle-group {
+            width: calc(100% - 2px);
+
+            mat-button-toggle {
+              width: 25%;
+            }
+          }
         }
 
         mat-card-content.akf-content {
@@ -115,6 +123,44 @@
               .new-incomplete { color: #6DC8F4; }
               .void-issues { color: #C23F37; }
             }
+          }
+        }
+
+        mat-card-content.patient-resources-content {
+          display: flex;
+          flex-direction: column;
+
+          div.patient-resources-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto auto;
+            grid-gap: 1rem;
+
+            margin: auto 0;
+
+            .expired { background-color: #C23F37; }
+            .needs-update { background-color: #F1A93B; }
+            .on-assistance { background-color: #73B667; }
+
+            mat-card.patient-resources-item {
+              mat-card-subtitle {
+                margin: 0 0 0.5rem;
+                font-weight: 500;
+                color: white;
+                text-align: center;
+              }
+
+              mat-card-content {
+                overflow: hidden;
+                padding: 1.25rem 0; 
+                border-radius: 4px;
+                background-color: white;
+
+                h1 { text-align: center; }
+              }
+            }
+
+            p { text-align: center; }
           }
         }
 

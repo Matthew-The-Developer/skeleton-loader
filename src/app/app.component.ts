@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { AKF } from './models/akf.model';
 import { CatheterRemoval } from './models/catheter-removel.model';
 import { LoaderTemplate } from './models/loader-template.enum';
+import { PatientResources } from './models/patient-resources.model';
 import { PeriodicElement } from './models/periodic-element.mode';
 import { TransplantStatus } from './models/transplant-status.model';
 import { DataService } from './services/data.service';
@@ -29,10 +30,12 @@ export class AppComponent implements OnInit {
   _catheterRemoval: BehaviorSubject<CatheterRemoval | null> = new BehaviorSubject<CatheterRemoval | null>(null);
   _transplantStatus: BehaviorSubject<TransplantStatus | null> = new BehaviorSubject<TransplantStatus | null>(null);
   _akf: BehaviorSubject<AKF | null> = new BehaviorSubject<AKF | null>(null);
+  _patientResources: BehaviorSubject<PatientResources | null> = new BehaviorSubject<PatientResources | null>(null);
   _periodicElements: BehaviorSubject<PeriodicElement[] | null> = new BehaviorSubject<PeriodicElement[] | null>(null);
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   LoaderTemplate = LoaderTemplate;
+  patientResourcesMode: string = 'cob';
 
   constructor(private dataService: DataService) { }
   
@@ -40,15 +43,19 @@ export class AppComponent implements OnInit {
     this._catheterRemoval = new BehaviorSubject<CatheterRemoval | null>(null);
     this._transplantStatus = new BehaviorSubject<TransplantStatus | null>(null);
     this._akf = new BehaviorSubject<AKF | null>(null);
+    this._patientResources = new BehaviorSubject<PatientResources | null>(null);
+    this._periodicElements = new BehaviorSubject<PeriodicElement[] | null>(null);
 
     this.dataService.getCatheterRemoval().subscribe((results) => this._catheterRemoval.next(results));
     this.dataService.getTransplantStatus().subscribe((results) => this._transplantStatus.next(results));
     this.dataService.getAKF().subscribe((results) => this._akf.next(results));
+    this.dataService.getPatientResources().subscribe((results) => this._patientResources.next(results));
     this.dataService.getPeriodicElements().subscribe((results) => this._periodicElements.next(results));
   }
 
   get catheterRemoval$(): Observable<CatheterRemoval | null> { return this._catheterRemoval.asObservable() }
   get transplantStatus$(): Observable<TransplantStatus | null> { return this._transplantStatus.asObservable() }
   get akf$(): Observable<AKF | null> { return this._akf.asObservable() }
+  get patientResources$(): Observable<PatientResources | null> { return this._patientResources.asObservable() }
   get periodicElements(): PeriodicElement[] { return this._periodicElements.value ?? [] }
 }

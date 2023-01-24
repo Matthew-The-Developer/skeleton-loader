@@ -65,8 +65,8 @@
           </div>
 
           <div class="columns">
-            <p class="over-due"><b>{{ transplantStatus.overdueTaskCount }}</b> Overdue Tasks</p>
-            <p class="due-soon"><b>{{ transplantStatus.duesoonTaskCount }}</b> Due Soon Tasks</p>
+            <p><b class="over-due">{{ transplantStatus.overdueTaskCount }}</b> Overdue Tasks</p>
+            <p><b class="due-soon">{{ transplantStatus.duesoonTaskCount }}</b> Due Soon Tasks</p>
           </div>
         </ng-container>
 
@@ -127,6 +127,61 @@
         </ng-template>
       </mat-card-content>
   
+      <mat-card-actions align="end">
+        <button mat-stroked-button color="primary">Details</button>
+      </mat-card-actions>
+    </mat-card>
+    
+    <mat-card>
+      <mat-card-title-group>
+        <mat-card-title>Patient Rescources Multi-Patient</mat-card-title>
+      </mat-card-title-group>
+
+      <mat-card-content class="patient-resources-content">
+        <ng-container *ngIf="patientResources$ | async as patientResources; else patientResourcesLoading">
+          <mat-button-toggle-group [(ngModel)]="patientResourcesMode" color="primary">
+            <mat-button-toggle value="cob">COB</mat-button-toggle>
+            <mat-button-toggle value="akf-ppws">AKF PPWs</mat-button-toggle>
+            <mat-button-toggle value="akf-requests">AKF Requests</mat-button-toggle>
+            <mat-button-toggle value="faf">FAF</mat-button-toggle>
+          </mat-button-toggle-group>
+  
+          <div class="patient-resources-grid">
+            <mat-card class="patient-resources-item expired mat-elevation-z0">
+              <mat-card-subtitle>Patients with Expired PPWs</mat-card-subtitle>
+  
+              <mat-card-content>
+                <h1>23</h1>
+              </mat-card-content>
+            </mat-card>
+            
+            <mat-card class="patient-resources-item needs-update mat-elevation-z0">
+              <mat-card-subtitle>Apps in Needs Update Status</mat-card-subtitle>
+  
+              <mat-card-content>
+                <h1>32</h1>
+              </mat-card-content>
+            </mat-card>
+            
+            <mat-card class="patient-resources-item on-assistance mat-elevation-z0">
+              <mat-card-subtitle>Patients on AKF Assistance</mat-card-subtitle>
+  
+              <mat-card-content>
+                <h1>75</h1>
+              </mat-card-content>
+            </mat-card>
+  
+            <p><b>5</b> Submitted</p>
+            <p><b>20</b> Keyed to GMS</p>
+            <p><b>14</b> Incompleted</p>
+          </div>
+        </ng-container>
+
+        <ng-template #patientResourcesLoading>
+          <app-loader-template [template]="LoaderTemplate.ContentFour"></app-loader-template>
+        </ng-template>
+      </mat-card-content>
+
       <mat-card-actions align="end">
         <button mat-stroked-button color="primary">Details</button>
       </mat-card-actions>

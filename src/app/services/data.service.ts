@@ -3,6 +3,7 @@ import { ScaleType } from '@swimlane/ngx-charts';
 import { delay, Observable, of } from 'rxjs';
 import { AKF } from '../models/akf.model';
 import { CatheterRemoval } from '../models/catheter-removel.model';
+import { PatientResources } from '../models/patient-resources.model';
 import { PeriodicElement } from '../models/periodic-element.mode';
 import { TransplantStatus } from '../models/transplant-status.model';
 
@@ -94,6 +95,17 @@ export class DataService {
         { color: 'void-issues', label: 'Void', value: 0 },
       ]
     }).pipe(delay(7000));
+  }
+
+  getPatientResources(): Observable<PatientResources> {
+    return of({
+      expiredPPWs: 23,
+      needsUpdate: 14,
+      onAssistance: 44,
+      submitted: 5,
+      keyed: 37,
+      incompleted: 9,
+    }).pipe(delay(8000));
   }
 
   getPeriodicElements(): Observable<PeriodicElement[]> {
