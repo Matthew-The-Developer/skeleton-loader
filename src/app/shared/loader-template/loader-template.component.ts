@@ -18,5 +18,4 @@ export class LoaderTemplateComponent implements OnInit {
   ngOnInit(): void {
     this.rows = Array(this.rowCount).fill(0).map((x,i)=>i)
   }
-
 }
